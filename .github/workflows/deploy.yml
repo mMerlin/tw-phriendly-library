@@ -2,7 +2,7 @@ name: Deploy plugin library
 
 on:
   push:
-    branches: [main]
+    branches: [master]
     paths:
       - members.json
       - editions/library/**
