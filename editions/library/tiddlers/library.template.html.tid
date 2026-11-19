@@ -1,0 +1,28 @@
+title: $:/plugins/tiddlywiki/pluginlibrary/library.template.html
+
+\rules only filteredtranscludeinline transcludeinline
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="application-name" content="phriendly's TiddlyWiki Plugin Library" />
+<title>phriendly's TiddlyWiki Plugin Library</title>
+<script>
+{{$:/plugins/tiddlywiki/pluginlibrary/asset-list-json}}
+{{$:/plugins/tiddlywiki/pluginlibrary/libraryserver.js}}
+</script>
+</head>
+<body>
+
+<h1>phriendly's TiddlyWiki Plugin Library</h1>
+
+<p>This page is not meant to be opened directly in a browser. Add it as a
+plugin library in TiddlyWiki: open Control Panel &rarr; Plugins &rarr; "Get
+more plugins", or create a tiddler tagged
+<code>$:/tags/PluginLibrary</code> with this page's URL in its
+<code>url</code> field.</p>
+
+<p>See <a href="https://tiddlywiki.com/" target="_blank">https://tiddlywiki.com/</a> for details.</p>
+
+</body>
+</html>

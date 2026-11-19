@@ -1,0 +1,10 @@
+{
+    "description": "phriendly's TiddlyWiki plugin library",
+    "plugins": [
+        "tiddlywiki/pluginlibrary"
+    ],
+    "themes": [
+        "tiddlywiki/vanilla",
+        "tiddlywiki/snowwhite"
+    ]
+}
