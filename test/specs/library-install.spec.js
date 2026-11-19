@@ -10,6 +10,7 @@
 // does in the sibling tearoff-panes repo.
 
 const assert = require("assert/strict");
+const { execFileSync } = require("child_process");
 const fs = require("fs");
 const os = require("os");
 const path = require("path");
@@ -27,8 +28,16 @@ module.exports = async function libraryInstall() {
 
 	const server = await startLibraryServer(path.join(ROOT, "editions", "library", "output"), PORT);
 	try {
+		// Built from the vendor/TiddlyWiki5 submodule's own empty edition
+		// rather than anything under import/ -- that folder is a local,
+		// git-ignored drop zone and doesn't exist in a fresh clone or in CI.
 		const emptyWikiPath = path.join(tmpDir, "empty.html");
-		fs.copyFileSync(path.join(ROOT, "import", "tiddlewiki-empty.html"), emptyWikiPath);
+		execFileSync(process.execPath, [
+			path.join(ROOT, "vendor", "TiddlyWiki5", "tiddlywiki.js"),
+			path.join(ROOT, "vendor", "TiddlyWiki5", "editions", "empty"),
+			"--output", tmpDir,
+			"--render", "$:/core/save/all", "empty.html", "text/plain"
+		], { cwd: ROOT, stdio: "ignore" });
 
 		const browser = await chromium.launch();
 		try {

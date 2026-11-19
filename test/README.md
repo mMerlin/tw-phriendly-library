@@ -2,9 +2,9 @@
 
 One end-to-end regression test, `specs/library-install.spec.js`. It:
 
-1. Builds a throwaway, plugin-free wiki fixture by copying
-   `import/tiddlywiki-empty.html` into a temp dir (left out of the repo
-   itself, since that folder is a drop zone -- see its own README).
+1. Builds a throwaway, plugin-free wiki fixture from the
+   `vendor/TiddlyWiki5` submodule's own `empty` edition -- self-contained,
+   no dependency on anything outside the repo.
 2. Serves `editions/library/output/` over a plain local HTTP server
    (`helpers/library-server.js`) -- run `../scripts/build-library.sh`
    first, or this will serve a stale/missing build.
